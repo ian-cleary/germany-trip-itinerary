@@ -33,7 +33,7 @@
     .flagline{height:7px;background:linear-gradient(90deg,#111 0 33.333%,#d31f2b 33.333% 66.666%,#efc628 66.666%)}
     .nav-shell{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
     .nav{max-width:1200px;margin:auto;padding:10px 22px;display:flex;align-items:center;gap:8px}
-    .nav a{text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);background:var(--paper);white-space:nowrap}
+    .nav a{text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);background:var(--paper);white-space:nowrap;transition:background .15s ease,color .15s ease,border-color .15s ease}
     .nav a:hover,.nav a.active{background:var(--nav);color:#fff;border-color:var(--nav)}
     .nav .status{margin-left:auto;border-color:var(--yellow);background:var(--yellow);color:var(--yellow-ink);font-weight:700}
     .page{max-width:1200px;margin:auto;padding:0 22px 84px}
@@ -45,10 +45,11 @@
     h2{font-size:clamp(40px,5.5vw,64px);font-weight:700;letter-spacing:-.025em}
     h3{font-size:32px;font-weight:700}
     h4{font-size:24px;font-weight:700}
+    h1,h2{text-wrap:balance}
     .lede{font-size:21px;color:var(--muted);max-width:720px;margin:18px 0 0}
     .departure-card{background:var(--nav);color:#fff;border-top:7px solid var(--yellow);padding:22px;box-shadow:var(--shadow)}
     .departure-card .micro{color:#bec9ce}.departure-card strong{display:block;font-family:"Barlow Condensed",sans-serif;font-size:34px;line-height:1;margin:8px 0}.departure-card p{margin:0;color:#c6d0d5}
-    .hero{position:relative;min-height:430px;background:var(--nav);overflow:hidden;box-shadow:var(--shadow)}
+    .hero{position:relative;min-height:430px;background:var(--nav);overflow:hidden;box-shadow:var(--shadow);border-bottom:7px solid var(--yellow)}
     .hero img{height:430px;object-fit:cover;filter:saturate(.85) contrast(1.03)}
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,13,17,.86) 0,rgba(7,13,17,.33) 52%,rgba(7,13,17,.06) 100%)}
     .hero-copy{position:absolute;z-index:2;left:clamp(20px,5vw,58px);bottom:clamp(22px,5vw,48px);max-width:520px;color:#fff}
@@ -59,10 +60,10 @@
     .pulse div{padding:18px 20px;border-right:1px solid #31414a}.pulse div:last-child{border-right:0}
     .pulse span{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#aebcc3;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
     .pulse strong{font-family:"Barlow Condensed",sans-serif;font-size:25px;line-height:1.05}
-    .section{padding-top:64px}.section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:22px}
+    .section{padding-top:60px}.section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:24px;border-top:1px solid var(--line);padding-top:26px}
     .section-head p{max-width:570px;margin:0;color:var(--muted)}
     .day-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px}
-    .day-tab{border:1px solid var(--line);background:var(--paper);text-align:left;padding:13px;min-height:86px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between}
+    .day-tab{border:1px solid var(--line);background:var(--paper);text-align:left;padding:13px;min-height:86px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;transition:background .15s ease,color .15s ease,border-color .15s ease}
     .day-tab:hover,.day-tab[aria-pressed="true"]{background:var(--nav);color:#fff;border-color:var(--nav)}
     .day-tab .micro{font-size:10px}.day-tab[aria-pressed="true"] .micro,.day-tab:hover .micro{color:#c0cbd0}
     .day-tab strong{font-size:16px;line-height:1.05}
@@ -80,19 +81,9 @@
     .stop time{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--blue);padding-top:3px}
     .stop strong{display:block;font-size:18px;line-height:1.2}.stop p{margin:3px 0 0;color:var(--muted);font-size:15px}
     .day-note{margin-top:22px;padding:15px 16px;background:var(--yellow);color:var(--yellow-ink);font-weight:700}
-    .priority-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    .open-loops{background:var(--nav);color:#fff;padding:28px}
-    .open-loops h3{font-size:38px;margin-bottom:8px}.open-loops>p{color:#bdc9cf;margin:0 0 20px}
-    .loop{display:grid;grid-template-columns:40px 1fr;gap:13px;padding:16px 0;border-top:1px solid #354650}
-    .loop-num{width:34px;height:34px;background:var(--yellow);color:var(--yellow-ink);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700}
-    .loop strong{display:block;font-size:18px}.loop p{color:#c2cdd2;font-size:14px;margin:4px 0 0}
-    .locked{background:var(--paper);border-top:6px solid var(--green);padding:28px}
-    .locked h3{font-size:38px;margin-bottom:18px}.locked-list{display:grid;gap:10px}
-    .locked-row{display:grid;grid-template-columns:76px 1fr;gap:13px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
-    .locked-row span{font-family:"IBM Plex Mono",monospace;font-size:10px;text-transform:uppercase;color:var(--green);font-weight:700;letter-spacing:.05em}.locked-row p{margin:0}
     .prep-shell{background:var(--paper);border:1px solid var(--line)}
     .prep-tabs{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}
-    .prep-tab{border:0;border-right:1px solid var(--line);background:var(--paper-2);padding:13px 10px;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+    .prep-tab{border:0;border-right:1px solid var(--line);background:var(--paper-2);padding:13px 10px;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em;transition:background .15s ease,color .15s ease}
     .prep-tab:last-child{border-right:0}.prep-tab:hover,.prep-tab[aria-pressed="true"]{background:var(--yellow);color:var(--yellow-ink)}
     .prep-body{display:grid;grid-template-columns:.65fr 1.35fr;min-height:340px}
     .prep-intro{padding:28px;border-right:1px solid var(--line);background:var(--nav);color:#fff}
@@ -101,7 +92,8 @@
     .prep-list li{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
     .prep-list .verb{font-family:"IBM Plex Mono",monospace;font-size:10px;text-transform:uppercase;font-weight:700;color:var(--blue);padding-top:3px}.prep-list strong{display:block;line-height:1.2}.prep-list small{display:block;color:var(--muted);margin-top:3px;font-size:13px}
     .bookings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .ticket{background:var(--paper);border-top:6px solid var(--yellow);padding:22px;min-height:260px;display:flex;flex-direction:column}
+    .ticket{background:var(--paper);border-top:6px solid var(--yellow);padding:22px;min-height:260px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+    .ticket:hover{transform:translateY(-3px)}
     .ticket.return{border-top-color:var(--red)}.ticket.stay{border-top-color:var(--blue)}
     .ticket .micro{margin-bottom:9px}.ticket h3{font-size:34px}.ticket .big-time{font-family:"Barlow Condensed",sans-serif;font-size:42px;font-weight:800;line-height:1;margin:15px 0 5px}
     .ticket p{margin:5px 0;color:var(--muted)}.ticket .ticket-foot{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line);font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
@@ -111,15 +103,16 @@
     .legal-body{border-top:1px solid var(--line);padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .legal-body h4{margin-bottom:8px}.legal-body ul{margin:0;padding-left:20px}.legal-body li{margin:6px 0}
     .downloads{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .download{background:var(--nav);color:#fff;padding:24px;text-decoration:none;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border-bottom:6px solid var(--yellow)}
-    .download:hover{background:var(--nav-soft)}.download strong{font-family:"Barlow Condensed",sans-serif;font-size:30px;line-height:1}.download span{color:#bec9cf;font-size:14px}.download .arrow{font-family:"IBM Plex Mono",monospace;font-size:24px;color:var(--yellow)}
-    .help-strip{margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:var(--paper);border:1px solid var(--line);padding:20px}
-    .help-strip p{margin:4px 0 0;color:var(--muted)}.copy{border:0;background:var(--yellow);color:var(--yellow-ink);font-weight:800;padding:13px 18px;cursor:pointer}
+    .download{background:var(--nav);color:#fff;padding:24px;text-decoration:none;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border-bottom:6px solid var(--yellow);transition:background .15s ease,transform .18s ease}
+    .download:hover{background:var(--nav-soft);transform:translateY(-3px)}.download strong{font-family:"Barlow Condensed",sans-serif;font-size:30px;line-height:1}.download span{color:#bec9cf;font-size:14px}.download .arrow{font-family:"IBM Plex Mono",monospace;font-size:24px;color:var(--yellow)}
+    .help-strip{margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:var(--paper);border:1px solid var(--line);padding:20px;box-shadow:var(--shadow)}
+    .help-strip p{margin:4px 0 0;color:var(--muted)}.copy{border:0;background:var(--yellow);color:var(--yellow-ink);font-weight:800;padding:13px 18px;cursor:pointer;transition:background .15s ease,transform .12s ease}
+    .copy:hover{background:#ddb21e}.copy:active{transform:scale(.97)}
     footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:13px}
     .toast{position:fixed;z-index:60;left:50%;bottom:22px;transform:translateX(-50%) translateY(140%);background:var(--nav);color:#fff;padding:12px 16px;box-shadow:var(--shadow);transition:transform .2s}.toast.show{transform:translateX(-50%) translateY(0)}
     @media(max-width:920px){
       header{grid-template-columns:1fr;gap:24px}.departure-card{max-width:460px}.pulse{grid-template-columns:1fr 1fr}.pulse div:nth-child(2){border-right:0}.pulse div:nth-child(-n+2){border-bottom:1px solid #31414a}
-      .day-tabs{grid-template-columns:repeat(3,1fr)}.roadbook{grid-template-columns:1fr}.day-photo,.day-photo img{min-height:360px;height:360px}.priority-grid{grid-template-columns:1fr}
+      .day-tabs{grid-template-columns:repeat(3,1fr)}.roadbook{grid-template-columns:1fr}.day-photo,.day-photo img{min-height:360px;height:360px}
       .prep-body{grid-template-columns:1fr}.prep-intro{border-right:0;border-bottom:1px solid var(--line)}.bookings{grid-template-columns:1fr 1fr}.ticket.stay{grid-column:1/-1}.legal-body{grid-template-columns:1fr}
     }
     @media(max-width:660px){
@@ -193,27 +186,8 @@
     </section>
 
     <section class="section" id="prepare">
-      <div class="section-head"><h2>Before the key turns</h2><p>Four things still need a positive answer. The rest is booked or can be packed straight from the lists below.</p></div>
-      <div class="priority-grid">
-        <article class="open-loops">
-          <span class="micro">Resolve before departure</span><h3>Four open loops</h3><p>Do these first. Everything else is routine packing.</p>
-          <div class="loop"><span class="loop-num">01</span><div><strong>Confirm the 944’s EU cover</strong><p>Carry the Sterling / Trinity Lane insurance certificate and make sure European use is included.</p></div></div>
-          <div class="loop"><span class="loop-num">02</span><div><strong>Get drone liability cover</strong><p>FPV UK membership is £24.99 a year and includes £5m public liability cover across the EU. Save the PDF certificate.</p></div></div>
-          <div class="loop"><span class="loop-num">03</span><div><strong>Label the Neo 2</strong><p>The IAA operator registration is issued. Put the operator e-ID on the aircraft and keep the registration available.</p></div></div>
-          <div class="loop"><span class="loop-num">04</span><div><strong>Get the lockbox details</strong><p>Retrieve Philipp’s check-in instructions in Airbnb before reaching Leonberg.</p></div></div>
-        </article>
-        <article class="locked">
-          <span class="micro">Already settled</span><h3>The anchors are in</h3>
-          <div class="locked-list">
-            <div class="locked-row"><span>Booked</span><p>Hull ↔ Rotterdam overnight ferries for two adults, the 944 and a window cabin.</p></div>
-            <div class="locked-row"><span>Paid</span><p>Three-night Airbnb in Leonberg, Friday to Monday.</p></div>
-            <div class="locked-row"><span>Covered</span><p>AA European breakdown cover is confirmed.</p></div>
-            <div class="locked-row"><span>Prepared</span><p>Itinerary and pre-departure PDF copies are ready below.</p></div>
-          </div>
-        </article>
-      </div>
-
-      <div class="prep-shell" style="margin-top:18px">
+      <div class="section-head"><h2>Before the key turns</h2><p>Everything is booked. Pack from the lists below, and tick each item off as it goes in the car.</p></div>
+      <div class="prep-shell">
         <div class="prep-tabs" role="group" aria-label="Preparation categories">
           <button class="prep-tab" data-prep="documents" aria-pressed="true">Documents</button>
           <button class="prep-tab" data-prep="car" aria-pressed="false">The 944</button>
